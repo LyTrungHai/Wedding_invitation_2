@@ -9,26 +9,25 @@ import IMG5 from "@/assets/IMGL1354a.jpg";
 import IMG6 from "@/assets/IMGL1551a.jpg";
 import IMG7 from "@/assets/JNP00129.jpg";
 import IMG8 from "@/assets/JNP00114.JPG";
-import IMG9 from "@/assets/JNP00102.JPG";
 import IMG10 from "@/assets/IMGL1238a.jpg";
 import IMG11 from "@/assets/IMGL1510a.jpg";
 import IMG12 from "@/assets/IMGL1428a.jpg";
 import IMG13 from "@/assets/JNP01865.jpg";
-import IMG14 from "@/assets/JNP01907.jpg";
+import IMG14 from "@/assets/JNP01343.jpg";
 import IMG15 from "@/assets/JNP02519.jpg";
 import IMG16 from "@/assets/JNP02749.jpg";
 import IMG17 from "@/assets/JNP02873.jpg";
 import IMG18 from "@/assets/JNP03097.jpg";
 import IMG19 from "@/assets/JNP03455.jpg";
-import IMG20 from "@/assets/JNP02176.jpg";
+import IMG20 from "@/assets/JNP02397.jpg";
 import IMG21 from "@/assets/JNP01573.jpg";
-import IMG22 from "@/assets/JNP02397.jpg";
+import IMG22 from "@/assets/JNP02237.jpg";
 
 const GallerySection = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [shuffledPhotos, setShuffledPhotos] = useState([]);
 
   const photos = [
-    IMG9,
     IMG7,
     IMG8,
     IMG1,
@@ -49,10 +48,16 @@ const GallerySection = () => {
     IMG19,
     IMG20,
     IMG21,
+    IMG22,
   ];
 
-  const shuffledPhotos = photos.sort(() => Math.random() - 0.5);
+  // Shuffle chỉ chạy 1 lần
+  useEffect(() => {
+    const shuffled = [...photos].sort(() => Math.random() - 0.5);
+    setShuffledPhotos(shuffled);
+  }, []);
 
+  // Lock scroll khi mở popup
   useEffect(() => {
     document.body.style.overflow = selectedIndex !== null ? "hidden" : "unset";
     return () => {
@@ -61,11 +66,11 @@ const GallerySection = () => {
   }, [selectedIndex]);
 
   const prev = () => {
-    setSelectedIndex((i) => (i === 0 ? photos.length - 1 : i - 1));
+    setSelectedIndex((i) => (i === 0 ? shuffledPhotos.length - 1 : i - 1));
   };
 
   const next = () => {
-    setSelectedIndex((i) => (i === photos.length - 1 ? 0 : i + 1));
+    setSelectedIndex((i) => (i === shuffledPhotos.length - 1 ? 0 : i + 1));
   };
 
   return (
@@ -142,10 +147,7 @@ const GallerySection = () => {
 
             {/* Image */}
             <img
-              src={photos[selectedIndex]}
-              initial="enter"
-              animate="center"
-              exit="exit"
+              src={shuffledPhotos[selectedIndex]}
               onClick={(e) => e.stopPropagation()}
               className="max-w-[90vw] max-h-[85vh] rounded-xl object-contain"
               draggable={false}
@@ -153,7 +155,7 @@ const GallerySection = () => {
 
             {/* Counter */}
             <div className="absolute bottom-4 text-white text-sm opacity-80">
-              {selectedIndex + 1} / {photos.length}
+              {selectedIndex + 1} / {shuffledPhotos.length}
             </div>
           </div>
         )}

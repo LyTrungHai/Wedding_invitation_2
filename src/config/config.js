@@ -77,6 +77,12 @@ const config = {
     // List of bank accounts for digital envelope/gifts
     banks: [
       {
+        bank: "VietcomBank",
+        accountNumber: "9375224867",
+        accountName: "NGUYEN THI QUYNH NHU",
+        qrImage: QRNhu,
+      },
+      {
         // Bank name
         bank: "VietcomBank",
         // Account number
@@ -86,12 +92,6 @@ const config = {
         qrImage: QRHai,
 
       },
-      {
-        bank: "VietcomBank",
-        accountNumber: "9375224867",
-        accountName: "NGUYEN THI QUYNH NHU",
-        qrImage: QRNhu,
-      }
       // You can add more banks with the same format
     ]
   }
