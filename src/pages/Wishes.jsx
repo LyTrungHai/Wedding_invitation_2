@@ -54,7 +54,7 @@ export default function Wishes() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/mnnolrwo", {
+      const response = await fetch("https://formspree.io/f/xgvgzdwk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, message: newWish, attendance }),
