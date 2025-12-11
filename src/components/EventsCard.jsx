@@ -60,7 +60,7 @@ const SingleEventCard = ({ eventData }) => {
 
   // Set cứng giờ và ngày theo event title
   const getEventDateTime = () => {
-    const date = "2025-11-30";
+    const date = "2025-12-21";
     if (eventData.title.includes("Lễ Vu Quy")) {
       return { startTime: "08:15", endTime: "10:30" };
     } else if (eventData.title.includes("Tiệc Cưới")) {
@@ -73,8 +73,8 @@ const SingleEventCard = ({ eventData }) => {
   const { startTime, endTime } = getEventDateTime();
 
   const googleCalendarLink = () => {
-    const startDate = new Date(`2025-11-30T${startTime}:00`);
-    const endDate = new Date(`2025-11-30T${endTime}:00`);
+    const startDate = new Date(`2025-12-21T${startTime}:00`);
+    const endDate = new Date(`2025-12-21T${endTime}:00`);
 
     const formatDate = (date) => date.toISOString().replace(/-|:|\.\d+/g, "");
 
@@ -88,8 +88,8 @@ const SingleEventCard = ({ eventData }) => {
   };
 
   const generateICSContent = () => {
-    const startDate = new Date(`2025-11-30T${startTime}:00`);
-    const endDate = new Date(`2025-11-30T${endTime}:00`);
+    const startDate = new Date(`2025-12-21T${startTime}:00`);
+    const endDate = new Date(`2025-12-21T${endTime}:00`);
 
     const formatICSDate = (date) =>
       date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
@@ -144,7 +144,7 @@ END:VCALENDAR`;
         <div className="space-y-3 text-gray-600">
           <div className="flex items-center space-x-3">
             <Calendar className="w-5 h-5 text-rose-500" />
-            <span>Chủ Nhật, Ngày 30 Tháng 11 Năm 2025</span>
+            <span>Chủ Nhật, Ngày 21 Tháng 12 Năm 2025</span>
           </div>
           <div className="flex items-center space-x-3">
             <Clock className="w-5 h-5 text-rose-500" />

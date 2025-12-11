@@ -41,7 +41,7 @@ const config = {
         // First event name
         title: "Lễ Thành Hôn",
         // Event date (format: YYYY-MM-DD)
-        date: "2025-11-30",
+        date: "2025-12-21",
         // Start time (format: HH:MM)
         startTime: "09:00 AM",
         // End time (format: HH:MM)
@@ -54,7 +54,7 @@ const config = {
       {
         // Second event name
         title: "Tiệc cưới",
-        date: "2025-11-30",
+        date: "2025-12-21",
         startTime: "11:00 AM",
         location: "Grand Ballroom, Hotel Majesty",
         address: "Jl. Jend. Sudirman No.1, Jakarta",
